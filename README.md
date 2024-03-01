@@ -6,6 +6,11 @@ Bienvenue dans mon application Symfony ! Cette application a été développée 
 
 Cette application Symfony a été conçue dans le but de démontrer l'implémentation de différentes méthodes de sécurité pour protéger l'application contre les vulnérabilités courantes telles que les attaques XSS, les injections SQL, les attaques CSRF, etc.
 
+## A savoir
+pour se connecter en administrateur si vous récupérer l'export SQL à la racine du projet,
+**id** : albana
+**mdp** : albana
+
 ## Fonctionnalités Principales
 
 - **Gestion des Utilisateurs :** L'application propose un système d'authentification sécurisé avec gestion des utilisateurs, incluant l'inscription, la connexion et la déconnexion des utilisateurs.
