@@ -1,0 +1,157 @@
+{%  extends 'base.html.twig' %}
+
+
+{% block body %}
+    <style>
+        form{
+            display: inline;
+
+        }
+
+        form>button:nth-child(1){
+            background-color: darkgoldenrod;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+        }
+
+        form>button:nth-child(2){
+            background-color: #B0413E;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+        }
+
+
+        .card {
+            max-width: 320px;
+            border-width: 1px;
+            border-color: rgba(219, 234, 254, 1);
+            border-radius: 1rem;
+            background-color: rgba(255, 255, 255, 1);
+            padding: 1rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            grid-gap: 1rem;
+            gap: 1rem;
+        }
+
+        .icon {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: rgba(96, 165, 250, 1);
+            padding: 0.5rem;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .icon svg {
+            height: 1rem;
+            width: 1rem;
+        }
+
+        .alert {
+            font-weight: 600;
+            color: rgba(107, 114, 128, 1);
+        }
+
+        .message {
+            margin-top: 1rem;
+            color: rgba(107, 114, 128, 1);
+        }
+
+        .actions {
+            margin-top: 1.5rem;
+        }
+
+        .actions a {
+            text-decoration: none;
+        }
+
+        .mark-as-read, .read {
+            display: inline-block;
+            border-radius: 0.5rem;
+            width: 100%;
+            padding: 0.75rem 1.25rem;
+            text-align: center;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 600;
+        }
+
+        .read {
+            background-color: rgba(59, 130, 246, 1);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .mark-as-read {
+            margin-top: 0.5rem;
+            background-color: rgba(249, 250, 251, 1);
+            color: rgba(107, 114, 128, 1);
+            transition: all .15s ease;
+        }
+
+        .mark-as-read:hover {
+            background-color: rgb(230, 231, 233);
+        }
+
+
+
+
+        .connexion{
+            background-color: darkgoldenrod;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .deconnexion{
+            background-color: #B0413E;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        header{
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+    <header>
+        {% if not (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %}
+            <a href="{{ path('app_login') }}" class="connexion">Se connecter</a>
+        {% endif %}
+
+        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('app_logout') }}" class="deconnexion">Se déconnecter</a>
+        {% endif %}
+
+    </header>
+
+    <div class="main">
+        <h1>Hello {{ cheese.name|raw }}!</h1>
+        <p>Hello {{ cheese.description|raw }}!</p>
+
+        <a href="{{ path('app_cheese') }}">Back to the list</a>
+    </div>
+
+{% endblock %}

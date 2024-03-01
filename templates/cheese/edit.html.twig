@@ -1,0 +1,16 @@
+{%  extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Edit the cheese</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+
+    {{ form_row(form.price) }}
+
+
+    {{ form_end(form) }}
+    <a href="{{ path('app_cheese') }}">Back to the list</a>
+
+{% endblock %}
