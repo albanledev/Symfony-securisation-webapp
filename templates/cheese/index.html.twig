@@ -153,7 +153,7 @@
             <a href="{{ path('app_login') }}" class="connexion">Se connecter</a>
         {% endif %}
 
-        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+        {% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %}
             <a href="{{ path('app_logout') }}" class="deconnexion">Se déconnecter</a>
         {% endif %}
 
